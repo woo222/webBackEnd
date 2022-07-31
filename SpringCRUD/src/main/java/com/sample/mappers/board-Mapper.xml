@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.sample.mappers.board-Mapper">
+
+	<insert id="create">
+	insert into spring_crud (title, content, writer)
+	values(#{title}, #{content}, #{writer})
+	</insert>
+	<select id="read" resultType="com.smple.domain.BoardVO">
+	select
+		bno, title, content, writer, regdate, viewcnt
+	from
+		spring_crud
+	where bno = #{bno}
+	</select>
+	
+	<update id="update">
+	update spring_crud set title =#{title}, content =#{content}
+	where bno = #{bno}
+	</update>
+	
+	<delete id="delete">
+	delete from spring_crud where bno = #{bno}
+	</delete>
+	
+	<select id="listAll" resultType="com.sample.domain.BoardVO">
+	<![CDATA[
+	select
+		bno, title, content, writer, regdate, viewcnt
+	from
+		spring_crud
+	where bno > 0
+	order by bno desc, regdate desc
+	]]>
+	</select>
+
+</mapper>

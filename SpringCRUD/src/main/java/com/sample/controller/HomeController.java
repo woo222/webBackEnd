@@ -1,4 +1,4 @@
-package com.myp.controller;
+package com.sample.controller;
 
 import java.text.DateFormat;
 import java.util.Date;
