@@ -3,7 +3,7 @@
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.sample.mappers.board-Mapper">
+<mapper namespace="com.myp.mapper.BoardMapper">
 
 	<insert id="create">
 	insert into spring_crud (title, content, writer)

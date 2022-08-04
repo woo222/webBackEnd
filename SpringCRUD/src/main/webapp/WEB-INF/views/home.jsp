@@ -6,16 +6,17 @@
 	<title>Home</title>
 </head>
 
-<body>
-	<form action = "listAll" method="get">
 
+<form action = "listAll" method="get">
+<body>
 
 	<button type ="submit">CRUD게시판 가기</button>
 
 	<h1>Hello world!</h1>
 
 	<P>  The time on the server is ${serverTime}. </P>
-	</form>
+	
 </body>
+</form>
 
 </html>

@@ -13,7 +13,7 @@ import com.sample.domain.BoardVO;
 public class BoardDAOImpl implements BoardDAO {
 	@Inject
 	private SqlSession session;
-	private static String namespace = "com.sample.mappers.board-Mapper";
+	private static String namespace = "com.myp.mapper.BoardMapper";
 	
 	public void create(BoardVO vo) throws Exception {
 		session.insert(namespace+".create", vo);

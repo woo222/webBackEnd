@@ -15,7 +15,7 @@
 	<!-- 자신의 PC(로컬)에 MySql을 설치했을 경우 -->
 	<bean id="ds" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver"/>
-		<property name="url" value="jdbc:mysql://127.0.0.1:3306/spring_crud?useSSL=false"/>
+		<property name="url" value="jdbc:mysql://127.0.0.1:3306/spring_crud?characterEncoding=utf8&amp;serverTimezone=UTC"/>
 		<!-- &amp;serverTimezone=UTC" -->
 		<property name="username" value="wjs"/>
 		<property name="password" value="spring123!"/>
@@ -23,19 +23,16 @@
 	
 	<!-- mybatis SqlSessionFactoryBean -->
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
-		<property name="dataSource" ref="ds"/> 
+		<property name="dataSource" ref="ds"/>
 	 	<property name="configLocation" value="classpath:/mybatis-config.xml"/>
 	 	<property name="typeAliasesPackage" value="model"/>
-	 	<!-- 
-	 	<property name="mapperLocations">
-			<value>classpath:/mappers/board-Mapper.xml"</value>
-		</property>
-		-->
+
+	 	<property name="mapperLocations" value = "classpath*:static/mappers/**/*Mapper.xml"></property>
+
 	</bean>
 	
 	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate" destroy-method="clearCache">
 		<constructor-arg name="sqlSessionFactory" ref="sqlSessionFactory"></constructor-arg>
 	</bean>
-
-
+	
 </beans>
