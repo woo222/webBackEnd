@@ -1,3 +1,4 @@
+
 package com.sample.persistence;
 
 import java.util.List;
@@ -13,7 +14,7 @@ import com.sample.domain.BoardVO;
 public class BoardDAOImpl implements BoardDAO {
 	@Inject
 	private SqlSession session;
-	private static String namespace = "com.myp.mapper.BoardMapper";
+	private static String namespace = "com.sample.mapper.board-Mapper";
 	
 	public void create(BoardVO vo) throws Exception {
 		session.insert(namespace+".create", vo);
