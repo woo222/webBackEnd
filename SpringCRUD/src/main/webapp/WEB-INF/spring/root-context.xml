@@ -36,7 +36,7 @@
 	 	<property name="configLocation" value="classpath:/mybatis-config.xml"/>
 	 	<property name="typeAliasesPackage" value="model"/>
 
-	 	<property name="mapperLocations" value = "classpath*:static/mappers/**/*Mapper.xml"></property>
+	 	<property name="mapperLocations" value = "classpath:mappers/*Mapper.xml"></property>
 
 	</bean>
 	

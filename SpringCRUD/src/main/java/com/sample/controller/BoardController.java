@@ -28,6 +28,10 @@ public class BoardController {
 		service.regist(board); // 글작성 서비스 호출	    	    
 	    return "redirect:/listAll"; // 작성이 완료된 후, 목록페이지로 리턴
 	}
+	@RequestMapping(value = "/regist", method = RequestMethod.GET) // POST방식으로 내용 전송
+	public String registGET() throws Exception { // 인자값으로 REDIRECT 사용 	   
+	    return "regist"; // 작성이 완료된 후, 목록페이지로 리턴
+	}
 	
 	@RequestMapping(value = "/read", method = RequestMethod.GET) // GET 방식으로 페이지 호출
 	public void read(@RequestParam("bno")int bno, Model model) throws Exception{
@@ -43,6 +47,14 @@ public class BoardController {
 	@RequestMapping(value = "/modify", method = RequestMethod.POST)// POST방식으로 데이터 전송
 	public String modifyPOST(BoardVO board, RedirectAttributes rttr) throws Exception {
 		service.modify(board); // 글수정 서비스 호출
+		return "redirect:/listAll"; // 수정이 완료된 후, 목록페이지로 리턴
+	}
+	
+
+	
+	@RequestMapping(value = "/remove", method = RequestMethod.POST)// POST방식으로 데이터 전송
+	public String removePOST(BoardVO board, RedirectAttributes rttr) throws Exception {
+		service.remove(board.getBno()); // 글수정 서비스 호출
 		return "redirect:/listAll"; // 수정이 완료된 후, 목록페이지로 리턴
 	}
 }
